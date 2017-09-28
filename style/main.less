@@ -42,6 +42,10 @@ body{
     font-weight: 700;
     text-transform: uppercase;
     border-radius: 5px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
   .refresh:hover{
     background: rgba(254,254,254,0.7)
@@ -60,6 +64,7 @@ body{
     border: none;
     border-bottom: 1px solid white;
     color: @cardInputColor;
+    outline: none;
   }
   .exp{
     margin-top: 20px;
@@ -71,6 +76,10 @@ body{
     border-bottom: none;
     background: rgba(255,255,255,.2);
     border-radius: 5px;
+    option{
+      background: @cardBackground;
+      border: none;
+    }
   }
   .card-number{
     font-size: 28px;
@@ -86,11 +95,17 @@ body{
     border: none;
     font-size: 18px;
     font-weight: 700;
+    cursor: pointer;
     color: @cardFontColor;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    .store-card{
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+    }
   }
   .card-mail{
     margin-top: 20px;
@@ -110,6 +125,10 @@ body{
     font-weight: 700;
     text-transform: uppercase;
     border-radius: 5px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
   .card-submit:hover{
     background: rgba(254,254,254,0.7)
