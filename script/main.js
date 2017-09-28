@@ -18,12 +18,12 @@ const refreshPage = function(ev){
   _('.card-number').value = '';
   _('.expire-month').children[0].selected = true;
   _('.expire-year').children[0].selected = true;
-  if(_('.mail')) _('.credit-card-form').removeChild(_('.mail'));
-  if(_('.cvv')) _('.credit-card-form').removeChild(_('.cvv'))
+  if(_('.mail')) _('.store-card-label').removeChild(_('.mail'));
+  if(_('.cvv')) _('.cvvt').removeChild(_('.cvv'))
   if(_('.exp-yy')) _('.credit-card-form').removeChild(_('.exp-yy'))
-  if(_('.exp-mm')) _('.credit-card-form').removeChild(_('.exp-mm'))
+  if(_('.exp-mm')) _('.exp').removeChild(_('.exp-mm'))
   if(_('.card-mail')) _('.credit-card-form').removeChild(_('.card-mail'));
-  if(_('.card')) _('.credit-card-form').removeChild(_('.card'));
+  if(_('.card')) _('.cnt').removeChild(_('.card'));
 }
 
 /* CHECKBOX */
@@ -54,51 +54,57 @@ const fullValidation = function(ev){
   ev.preventDefault();
   if(_('.card-number').value.length < 19) {
     if(!_('.card')){
-      let error = document.createElement('P');
+      let error = document.createElement('SPAN');
       error.classList.add('error-msg');
       error.classList.add('card');
       error.innerHTML = 'minimum 16 numbers'
-      _('.credit-card-form').insertBefore(error, _('.card-number'))
+      _('.cnt').appendChild(error)
     }
   }
   if(_('.card-cvv').value.length < 2) {
     if(!_('.cvv')){
-      let error = document.createElement('P');
+      let error = document.createElement('SPAN');
       error.classList.add('error-msg');
       error.classList.add('cvv');
       error.innerHTML = 'minimum 2 numbers'
-      _('.credit-card-form').insertBefore(error, _('.card-cvv'))
+      _('.cvvt').appendChild(error)
     }
   }
   if(_('.expire-year')[0].selected === true){
     if(!_('.exp-yy')){
-      let error = document.createElement('P');
+      let error = document.createElement('SPAN');
       error.classList.add('error-msg');
       error.classList.add('exp-yy');
       error.innerHTML = 'select a year'
-      _('.credit-card-form').insertBefore(error, _('.expire-year'))
+      _('.credit-card-form').insertBefore(error, _('.cvvt'))
     }
   }
   if(_('.expire-month')[0].selected === true){
     if(!_('.exp-mm')){
-      let error = document.createElement('P');
+      let error = document.createElement('SPAN');
       error.classList.add('error-msg');
       error.classList.add('exp-mm');
       error.innerHTML = 'select a month'
-      _('.credit-card-form').insertBefore(error, _('.expire-month'))
+      _('.exp').appendChild(error)
     }
   }
   if(_('.card-mail')){
     if(!_('.card-mail').value.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
       if(!_('.mail')){
-        let error = document.createElement('P');
+        let error = document.createElement('SPAN');
         error.classList.add('error-msg');
         error.classList.add('mail');
         error.innerHTML = 'wrong mail';
-         _('.credit-card-form').insertBefore(error, _('.card-mail'))
+         _('.store-card-label').appendChild(error)
        }
     }
   }
+  cardSubmit();
+}
+
+/* CARD SUBMIT */
+
+const cardSubmit = function(){
   if(document.querySelectorAll('.error-msg').length < 1){
     _('.root').innerHTML = '';
     let loader = document.createElement('h1');
@@ -112,7 +118,7 @@ const fullValidation = function(ev){
 /* ERRORS + CARD NUMBER VALIDATION */
 
 const isTypingNumber = function(ev){
-  if(_('.card')) _('.credit-card-form').removeChild(_('.card'))
+  if(_('.card')) _('.cnt').removeChild(_('.card'))
   let numbers = ev.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '')
   let matches = numbers.match(/\d{4,16}/g);
   let match = matches && matches[0] || '';
@@ -134,15 +140,15 @@ const isSelectingYear = function(){
 }
 
 const isSelectingMonth = function(){
-  if(_('.exp-mm')) _('.credit-card-form').removeChild(_('.exp-mm'))
+  if(_('.exp-mm')) _('.exp').removeChild(_('.exp-mm'))
 }
 
 const isTypingCVV = function(){
-  if(_('.cvv')) _('.credit-card-form').removeChild(_('.cvv'))
+  if(_('.cvv')) _('.cvvt').removeChild(_('.cvv'))
 }
 
 const isTypingMail = function(){
-  if(_('.mail')) _('.credit-card-form').removeChild(_('.mail'))
+  if(_('.mail')) _('.store-card-label').removeChild(_('.mail'))
 }
 
 const isChecked = function(){

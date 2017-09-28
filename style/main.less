@@ -3,6 +3,7 @@
 @cardInputColor: #f1f5f8;
 
 @import url('https://fonts.googleapis.com/css?family=Crimson+Text:400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Encode+Sans+Expanded:400,500,600,700,900');
 
 * {
   margin: 0;
@@ -42,6 +43,7 @@ body{
     font-weight: 700;
     text-transform: uppercase;
     border-radius: 5px;
+    font-family: 'Encode Sans Expanded', sans-serif;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -55,6 +57,7 @@ body{
     font-size: 18px;
     font-weight: 700;
     text-transform: capitalize;
+    font-family: 'Encode Sans Expanded', sans-serif;
   }
   .title:not(:first-child){
     margin-top: 20px;
@@ -76,6 +79,7 @@ body{
     border-bottom: none;
     background: rgba(255,255,255,.2);
     border-radius: 5px;
+    font-family: 'Encode Sans Expanded', sans-serif;
     option{
       background: @cardBackground;
       border: none;
@@ -84,15 +88,19 @@ body{
   .card-number{
     font-size: 28px;
     width: 45.5%;
+    margin-top: 10px;
   }
   .card-cvv{
-    width: 48px;
+    width: 46px;
     font-size: 26px;
+    margin-top: 10px;
   }
   .store-card-label{
-    margin-top: 20px;
+    position: relative;
     display: block;
     border: none;
+    margin-top: 20px;
+    padding-left: 25px;
     font-size: 18px;
     font-weight: 700;
     cursor: pointer;
@@ -101,10 +109,14 @@ body{
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    font-family: 'Encode Sans Expanded', sans-serif;
     .store-card{
+      position: absolute;
       cursor: pointer;
-      height: 15px;
-      width: 15px;
+      height: 20px;
+      width: 20px;
+      left: 0;
+      top: 3px;
     }
   }
   .card-mail{
@@ -125,6 +137,7 @@ body{
     font-weight: 700;
     text-transform: uppercase;
     border-radius: 5px;
+    font-family: 'Encode Sans Expanded', sans-serif;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -134,7 +147,12 @@ body{
     background: rgba(254,254,254,0.7)
   }
   .error-msg{
-    font-size: 24px;
+    font-family: 'Crimson Text', serif;
+    font-weight: normal;
+    text-transform: none;
+    margin-left: 20px;
+    height: 10px;
+    font-size: 16px;
     color: indianred;
   }
 }

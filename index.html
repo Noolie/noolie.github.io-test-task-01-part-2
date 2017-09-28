@@ -18,8 +18,8 @@
   <div class='root'>
 
     <form class='credit-card-form'>
-      <button class='refresh'>clear</button>
-      <p class='title'>card number</p>
+      <div class='refresh'>clear</div>
+      <p class='title cnt'>card number</p>
       <input class='inputs card-number' type="text" onkeypress="return letterValidation(event)">
       <p class='title exp'>expiration</p>
       <select class='inputs expire-month'>
@@ -46,13 +46,13 @@
         <option value='21'>2021</option>
         <option value='22'>2022</option>
       </select>
-      <p class='title'>CVV</p>
+      <p class='title cvvt'>CVV</p>
       <input class='inputs card-cvv' type="text" onkeypress="return letterValidation(event)">
       <label class='store-card-label'>
         <input class='store-card' type="checkbox">
         Store the card?
       </label>
-      <button class='card-submit'>submit</button>
+      <button type='submit' class='card-submit'>submit</button>
 
     </form>
 
