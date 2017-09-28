@@ -34,6 +34,7 @@ const isCardStored = function(){
     mail.classList.add('inputs');
     mail.classList.add('card-mail');
     mail.addEventListener('input', isTypingMail);
+    mail.placeholder = 'e-mail address'
     _('.credit-card-form').insertBefore(mail, _('.card-submit'))
   } else {
     _('.credit-card-form').removeChild(_('.card-mail'))
