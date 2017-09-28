@@ -62,12 +62,30 @@ const fullValidation = function(ev){
       _('.cnt').appendChild(error)
     }
   }
+  if(_('.card-number').value.match(/[^0-9\s]/g)) {
+    if(!_('.card')){
+      let error = document.createElement('SPAN');
+      error.classList.add('error-msg');
+      error.classList.add('card');
+      error.innerHTML = 'wrong type'
+      _('.cnt').appendChild(error)
+    }
+  }
   if(_('.card-cvv').value.length < 2) {
     if(!_('.cvv')){
       let error = document.createElement('SPAN');
       error.classList.add('error-msg');
       error.classList.add('cvv');
       error.innerHTML = 'minimum 2 numbers'
+      _('.cvvt').appendChild(error)
+    }
+  }
+  if(_('.card-cvv').value.match(/[^0-9]/)) {
+    if(!_('.cvv')){
+      let error = document.createElement('SPAN');
+      error.classList.add('error-msg');
+      error.classList.add('cvv');
+      error.innerHTML = 'wrong type'
       _('.cvvt').appendChild(error)
     }
   }
