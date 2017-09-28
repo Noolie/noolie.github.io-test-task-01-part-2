@@ -108,11 +108,15 @@ const fullValidation = function(ev){
 const cardSubmit = function(){
   if(document.querySelectorAll('.error-msg').length < 1){
     _('.root').innerHTML = '';
-    let loader = document.createElement('h1');
-    loader.innerHTML = 'loading...'
+    let loader = document.createElement('DIV');
     loader.classList.add('loader');
+    for(let i = 0; i < 9; i++){
+      let circle = document.createElement('DIV');
+      circle.classList.add('anim-circle');
+      loader.appendChild(circle)
+    }
     _('.root').appendChild(loader);
-    setTimeout(()=>loader.innerHTML = 'Thank you for purchase', 2000)
+    setTimeout(()=>loader.innerHTML = '<p class="success-message">Thank you for purchase</p>', 3500)
   }
 }
 
@@ -153,7 +157,7 @@ const isTypingMail = function(){
 }
 
 const isChecked = function(){
-  if(_('.mail')) _('.credit-card-form').removeChild(_('.mail'))
+  if(_('.mail')) _('.store-card-label').removeChild(_('.mail'))
 }
 
 /* LISTENERS */
