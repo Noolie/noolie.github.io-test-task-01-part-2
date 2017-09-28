@@ -1,0 +1,9 @@
+window.addEventListener('load', refreshPage);
+_('.refresh').addEventListener('click', refreshPage);
+_('.store-card').addEventListener('change', isChecked);
+_('.card-number').addEventListener('input', isTypingNumber);
+_('.card-cvv').addEventListener('input', isTypingCVV);
+_('.expire-year').addEventListener('change', isSelectingYear);
+_('.expire-month').addEventListener('change', isSelectingMonth);
+_('.card-submit').addEventListener('click', fullValidation);
+_('.store-card').addEventListener('click', isCardStored);
